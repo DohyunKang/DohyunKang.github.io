@@ -262,6 +262,20 @@ dialog.m::backdrop{background:rgba(20,19,17,.55);backdrop-filter:blur(4px);-webk
   .job::before{width:100%;transition:none}
 }
 
+/* 지금 일하는 곳 — 초록 점이 숨 쉬는 알약 */
+.nowat{display:inline-flex;align-items:center;gap:10px;margin-top:14px;padding:7px 14px 7px 12px;border-radius:999px;
+  background:var(--paper);border:1px solid var(--line);box-shadow:var(--sh);font-size:.86rem;color:var(--sub);line-height:1.3;flex-wrap:wrap}
+.nowat i{position:relative;width:8px;height:8px;border-radius:50%;background:#22A06B;flex:none}
+.nowat i::after{content:"";position:absolute;inset:-4px;border-radius:50%;background:#22A06B;opacity:.35;animation:pulse 2s ease-out infinite}
+@keyframes pulse{from{transform:scale(.6);opacity:.45}to{transform:scale(1.8);opacity:0}}
+.nowat em{font-style:normal;font-weight:700;color:var(--faint);font-size:.76rem;letter-spacing:.04em}
+.nowat b{color:var(--ink)}
+.nowat small{color:var(--faint);font-size:.8rem}
+@media (prefers-reduced-motion:reduce){.nowat i::after{animation:none}}
+/* 회사 프로젝트 — 눌러도 안 열림, 내용은 대외비 */
+.wk.lock{cursor:default}
+.cover.c4{background:color-mix(in srgb,#7A5AF8 13%,var(--paper))}
+.cover.c5{background:color-mix(in srgb,#8A929E 16%,var(--paper))}
 /* 돌려 보기 — 단어·설명이 위로 빠지고 아래에서 올라옴 */
 .slot__w,.intro{transition:opacity .26s ease,transform .26s ease}
 .slot__w.out,.intro.out{opacity:0;transform:translateY(-8px)}
@@ -332,6 +346,7 @@ dialog.m::backdrop{background:rgba(20,19,17,.55);backdrop-filter:blur(4px);-webk
       <p class="hello it">Hello, I'm Dohyun.</p>
       <h1><span class="ln"><span>직접 개발하고 경험하며</span></span><span class="ln"><span class="b">PM의 길을 걷고 있습니다</span></span></h1>
       <div class="chips"><span class="chip">Junior PM</span><span class="chip">AI/AX</span><span class="chip">Allie Research</span></div>
+      <p class="nowat"><i></i><em>NOW</em><b>Allie Research Inc.</b><small>Junior PM · AI/AX</small></p>
       <p class="slot">저는 <span class="slot__w" id="slotw">생각한 걸 직접 만들어 보는</span> 사람입니다.
         <button type="button" id="slotb" aria-label="다른 말 보기">↻</button></p>
       <p class="intro" id="slotd">제품과 마케팅을 기획하고, AI 모델 파인튜닝과 개발에 힘쓰고 있습니다. 기획에서 멈추지 않고, 직접 만들어 보며 확인합니다.</p>
@@ -392,6 +407,24 @@ dialog.m::backdrop{background:rgba(20,19,17,.55);backdrop-filter:blur(4px);-webk
         <div class="wk__meta">
           <div class="wk__top"><h3>Allie Research Inc.</h3><div class="tags"><span class="tag secret">대외비</span></div></div>
           <span class="wk__date">2026.08 – 현재 · Junior PM · AI/AX</span>
+        </div>
+      </div>
+
+      <div class="wk lock up">
+        <div class="cover c4"><span class="it">Messaging.</span></div>
+        <div class="wk__meta">
+          <div class="wk__top"><h3>메신저 앱 개발</h3><div class="tags"><span class="tag secret">대외비</span></div></div>
+          <span class="wk__date">2026.08 – 현재 · Allie Research</span>
+          <p>메신저 앱의 기능을 개발하고 있습니다. 세부 내용은 대외비입니다.</p>
+        </div>
+      </div>
+
+      <div class="wk lock up">
+        <div class="cover c5"><span class="it">Automating.</span></div>
+        <div class="wk__meta">
+          <div class="wk__top"><h3>사내 시스템 자동화</h3><div class="tags"><span class="tag secret">대외비</span></div></div>
+          <span class="wk__date">2026.08 – 현재 · Allie Research</span>
+          <p>반복되는 사내 업무를 줄이는 시스템을 만들고 있습니다. 세부 내용은 대외비입니다.</p>
         </div>
       </div>
 

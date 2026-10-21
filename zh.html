@@ -280,6 +280,12 @@ dialog.m::backdrop{background:rgba(20,19,17,.55);backdrop-filter:blur(4px);-webk
 dialog.lb{width:min(820px,calc(100vw - 24px));background:var(--paper)}
 dialog.lb img{width:100%;height:auto;display:block;border-radius:0 0 18px 18px}
 dialog.lb .m__x{position:absolute;top:10px;right:10px;margin:0}
+/* 모달 — 주요 기능과 사진 설명 */
+.m__feat{margin:0;padding-left:18px;display:grid;gap:4px;color:var(--sub);font-size:.94rem}
+.m__gallery figure{margin:0;display:grid;gap:6px}
+.m__gallery figure a{display:block;border-radius:10px;overflow:hidden}
+.m__gallery figcaption{font-size:.8rem;color:var(--faint);line-height:1.5}
+.steps li{grid-template-columns:92px 1fr}
 /* 돌려 보기 — 단어·설명이 위로 빠지고 아래에서 올라옴 */
 .slot__w,.intro{transition:opacity .26s ease,transform .26s ease}
 .slot__w.out,.intro.out{opacity:0;transform:translateY(-8px)}
@@ -365,7 +371,7 @@ dialog.lb .m__x{position:absolute;top:10px;right:10px;margin:0}
   <div class="wrap nums">
     <div class="num up"><b><span class="cnt" data-to="3.93" data-dec="2">3.93</span><small> / 4.5</small></b><span>总学分 (GPA)</span><em class="num__d">专业 4.05 / 4.5</em></div>
     <div class="num up"><b><span class="cnt" data-to="4">4</span><small>项</small></b><span>竞赛·学术获奖</span></div>
-    <div class="num up"><b><span class="cnt" data-to="6">6</span><small>次</small></b><span>领导经验</span><em class="num__d">组长 3 次 · 训练营班长 · 社团会长 · 部队班长</em></div>
+    <div class="num up"><b><span class="cnt" data-to="7">7</span><small>次</small></b><span>领导经验</span><em class="num__d">组长 3 次 · 训练营班长 · 社团会长 2 次 · 部队班长</em></div>
   </div>
 </section>
 
@@ -538,7 +544,8 @@ dialog.lb .m__x{position:absolute;top:10px;right:10px;margin:0}
         <div class="rows">
           <div class="row"><div>车载 CAN/CAN-FD · Ethernet <small>成均馆大学未来汽车事业团</small></div><span class="d">2024.06<a href="img/docs/can-certificate.jpg" class="doc" target="_blank" rel="noopener">CAN</a><a href="img/docs/ethernet-certificate.jpg" class="doc" target="_blank" rel="noopener">Ethernet</a></span></div>
           <div class="row"><div>数字 3D 打印 · 创业精神培训 <small>仁川大学</small></div><span class="d">2023<a href="img/docs/3d-printing.jpg" class="doc" target="_blank" rel="noopener">3D 打印</a><a href="img/docs/entrepreneurship.jpg" class="doc" target="_blank" rel="noopener">创业精神</a></span></div>
-          <div class="row"><div>编程社团 NULL 会长 <small>为学弟学妹提供 C/C++ 辅导，重整学习支持体系</small></div><span class="d">2019 – 2024</span></div>
+          <div class="row"><div>编程社团 NULL <small>2023 年会长 · 为学弟学妹提供 C/C++ 辅导，重整学习支持体系</small></div><span class="d">2019 – 2024</span></div>
+          <div class="row"><div>大学五人制足球社团 Chaba <small>会长</small></div><span class="d">2023 – 2024</span></div>
         </div>
       </div>
     </div>
@@ -573,14 +580,25 @@ dialog.lb .m__x{position:absolute;top:10px;right:10px;margin:0}
     <p class="m__sub">2024.04 – 10 · 4人团队</p>
       <span class="wk__win">ACK 2024 论文优秀奖 · Hanium 竞赛入选</span>
         <ul class="steps">
-          <li><em>问题</em><span>车位狭窄的别墅，常因双排停车和联系挪车引发邻里纠纷。最大的不便，是不知道车什么时候会开走。</span></li>
-          <li><em>工作</em><span>我亲自撰写<b>需求·界面设计·ERD</b>，用摄像头识别车牌（YOLOv8 + OCR），按车位显示停车情况。训练数据不足使最初的方法受阻，我便重新设定目标，改为<b>用 Gaussian Process 预测出库时间</b>。</span></li>
-          <li><em>成果</em><span>获得论文优秀奖和竞赛入选。竞赛结束后，我又<b>独自坚持了 5 个月</b>，完成界面改版、实时刷新乃至 Docker 部署。</span></li>
+          <li><em>问题</em><span>狭小的别墅停车场<b>看不到空位</b>，也不知道前车何时离开，“请挪车”的联络不断。</span></li>
+          <li><em>我做的事</em><span>作为 4 人团队的组长，我编写了需求、界面设计和 ERD，用 <b>YOLOv8 识别车辆、EasyOCR 识别车牌</b>，在 Django 网页上显示各车位状态和预计出库时间。</span></li>
+          <li><em>结构</em><span>摄像头端把识别结果发送到服务器 API，服务器更新车位状态，网页显示状态、出库时间和公告板。我们用缩小模型停车场做了演示。</span></li>
+          <li><em>结果</em><span><b>ACK 2024 论文优秀奖</b>，<b>Hanium ICT 导师制竞赛入选</b>。</span></li>
+          <li><em>后续</em><span>竞赛结束后我独自继续了约 5 个月：<b>用 React 重做界面</b>并每 1.5 秒自动刷新；把出库预测换成数据少也稳定的<b>高斯过程</b>，并用 Docker 和 GitHub Actions 整理了部署。</span></li>
         </ul>
-        <div class="stack"><span>YOLOv8</span><span>OCR</span><span>Gaussian Process</span><span>Django</span><span>React</span><span>MySQL</span><span>Docker</span><span>AWS EC2</span></div>
+        <p class="m__h">主要功能</p>
+        <ul class="m__feat">
+          <li>车辆识别 + 车牌识别，误识别用相似度匹配修正</li>
+          <li>各车位状态与剩余车位数</li>
+          <li>按星期登记出库时间并预测出库时间</li>
+          <li>综合距离、习惯、邻车出库与堵车风险的车位推荐（显示评分依据）</li>
+          <li>公告、留言板、聊天，周边停车场地图</li>
+          <li>韩语 / 英语 / 日语，无需硬件的演示模式</li>
+        </ul>
+        <div class="stack"><span>Python</span><span>Django</span><span>DRF</span><span>React</span><span>Vite</span><span>Tailwind CSS</span><span>YOLOv8</span><span>EasyOCR</span><span>OpenCV</span><span>Gaussian Process</span><span>Docker</span><span>GitHub Actions</span></div>
         <div class="docs"><a href="https://github.com/user-attachments/files/26230737/24._SW._HW._.x._.1.pptx" target="_blank" rel="noopener">设计书</a><a href="https://github.com/user-attachments/files/26230765/TEAM_._2024.ICT.pdf" target="_blank" rel="noopener">执行计划书</a><a href="https://github.com/user-attachments/files/26230588/ICT.pdf" target="_blank" rel="noopener">论文</a><a href="https://github.com/DohyunKang/DohyunKang/blob/main/assets/docs/smartparking-ja.pdf" target="_blank" rel="noopener">改进版介绍（日本語）</a></div>
     <p class="m__h">资料</p>
-    <div class="m__gallery"><!-- 照片·画面资料: <img src="img/..." alt=""> --></div>
+    <div class="m__gallery"><figure><a href="img/parking-app.jpg" class="doc"><img src="img/parking-app.jpg" alt="改进版（v2）— 推荐车位与实时状态" loading="lazy"></a><figcaption>改进版（v2）— 推荐车位与实时状态</figcaption></figure><figure><a href="img/projects/parking-1.jpg" class="doc"><img src="img/projects/parking-1.jpg" alt="第一版停车状态 — 各车位车牌与预计出库时间" loading="lazy"></a><figcaption>第一版停车状态 — 各车位车牌与预计出库时间</figcaption></figure><figure><a href="img/projects/parking-2.jpg" class="doc"><img src="img/projects/parking-2.jpg" alt="演示用缩小模型停车场的摄像头画面" loading="lazy"></a><figcaption>演示用缩小模型停车场的摄像头画面</figcaption></figure><figure><a href="img/projects/parking-3.jpg" class="doc"><img src="img/projects/parking-3.jpg" alt="按星期设置入库 / 出库时间" loading="lazy"></a><figcaption>按星期设置入库 / 出库时间</figcaption></figure></div>
   </div>
 </dialog>
 
@@ -592,14 +610,23 @@ dialog.lb .m__x{position:absolute;top:10px;right:10px;margin:0}
     <p class="m__sub">2023.05 – 07 · 4人团队</p>
       <span class="wk__win">产学 Capstone Design 银奖</span>
         <ul class="steps">
-          <li><em>问题</em><span>在现场摔倒或接触有害气体时，很难及时通知他人。目标是只靠一顶安全帽就能感知危险并通知管理员。</span></li>
-          <li><em>工作</em><span>用陀螺仪和空气质量传感器检测摔倒与气体，通过<b>LoRa 无线</b>发送到管理员电脑。还做出了管理员一目了然的<b>PyQt 界面</b>和可执行文件。</span></li>
-          <li><em>成果</em><span>从设计、原型到管理界面全部完成，获得产学 Capstone Design 竞赛银奖。</span></li>
+          <li><em>问题</em><span>现场作业人员摔倒或接触有害气体时，<b>管理员往往无法第一时间知道。</b></span></li>
+          <li><em>我做的事</em><span>我设计了安装在安全帽上的支架，焊接传感器电路，并编写了 Arduino（SAMD21）固件和 <b>PyQt5 监控程序</b>。</span></li>
+          <li><em>结构</em><span>安全帽通过 <b>LoRa</b> 发送 CO2、TVOC、温湿度、气压数值和状态，接收器附上信号强度（RSSI）传给 PC，监控界面按作业人员显示。</span></li>
+          <li><em>结果</em><span>2023 仁川大学产学 Capstone Design 竞赛<b>银奖</b>。</span></li>
         </ul>
-        <div class="stack"><span>SAMD21G</span><span>Arduino</span><span>LoRa</span><span>Python</span><span>PyQt5</span></div>
+        <p class="m__h">主要功能</p>
+        <ul class="m__feat">
+          <li>用加速度传感器检测摔倒，10 秒无动作即判定为事故</li>
+          <li>事故时安全帽蜂鸣报警，监控界面变红</li>
+          <li>突出显示危险数值（如 CO2 超过 1000ppm）</li>
+          <li>最多同时监控 6 人，信号中断 4 秒以上显示“连接断开”</li>
+          <li>LoRa 远距离无线通信</li>
+        </ul>
+        <div class="stack"><span>Arduino (SAMD21)</span><span>C/C++</span><span>LoRa (RFM95)</span><span>LSM6DS3</span><span>CCS811</span><span>BME280</span><span>Python</span><span>PyQt5</span></div>
         <div class="docs"><a href="https://github.com/DohyunKang/DohyunKang/blob/main/assets/docs/safety-helmet-final-report.pdf" target="_blank" rel="noopener">最终报告</a><a href="https://github.com/user-attachments/files/29079632/capstone_helmet_JP_full.pdf" target="_blank" rel="noopener">日本語</a><a href="img/docs/capstone-silver.jpg" class="doc" target="_blank" rel="noopener">奖状</a></div>
     <p class="m__h">资料</p>
-    <div class="m__gallery"><!-- 照片·画面资料: <img src="img/..." alt=""> --></div>
+    <div class="m__gallery"><figure><a href="img/projects/helmet-1.jpg" class="doc"><img src="img/projects/helmet-1.jpg" alt="装有传感器、LoRa 模块和电池的安全帽样机" loading="lazy"></a><figcaption>装有传感器、LoRa 模块和电池的安全帽样机</figcaption></figure><figure><a href="img/projects/helmet-2.jpg" class="doc"><img src="img/projects/helmet-2.jpg" alt="监控程序 — 作业人员 1 的传感器数值与状态（正常）" loading="lazy"></a><figcaption>监控程序 — 作业人员 1 的传感器数值与状态（正常）</figcaption></figure></div>
   </div>
 </dialog>
 
@@ -610,14 +637,23 @@ dialog.lb .m__x{position:absolute;top:10px;right:10px;margin:0}
     <div class="wk__top"><h3>养蜂 IoT</h3><div class="tags"><span class="tag">产学合作</span></div></div>
     <p class="m__sub">2022.09 – 2023.12 · 高频天线设计实验室</p>
         <ul class="steps">
-          <li><em>问题</em><span>蜂箱内的温湿度和气体变化，靠人每次去确认很困难。</span></li>
-          <li><em>工作</em><span>在 ESP32 上接温湿度和气体传感器，通过 Wi-Fi 发送，再用服务器和 <b>MySQL 网页</b>实现远程查看。在实验室，我还负责 CST 天线设计和 VNA·频谱分析仪测量。</span></li>
-          <li><em>成果</em><span>在与政府机构、大学合作的课题中，我把从硬件到网页的整条链路一次打通了。</span></li>
+          <li><em>背景</em><span>这是与<b>安东大学</b>合作的农村振兴厅课题，目标是远程监测蜂箱状态。</span></li>
+          <li><em>我做的事</em><span>我编写了连接温湿度（DHT）、气体（MQ135）、重量（称重传感器）的 ESP32 固件，以及存储和展示数据的 <b>PHP·MySQL 网页</b>。在实验室还负责 CST 天线设计和 VNA·频谱分析仪测量。</span></li>
+          <li><em>结构</em><span>每个蜂箱的传感器板通过 <b>ESP-NOW</b> 把数据发给主板，主板再经 Wi-Fi 上传服务器。为省电，测量间隙进入深度睡眠。</span></li>
+          <li><em>结果</em><span>可以在网页上实时查看 3 个蜂箱和外部环境的数据，并通过分时段图表和 Excel 导出进行回顾。</span></li>
         </ul>
-        <div class="stack"><span>ESP32</span><span>DHT · MQ 传感器</span><span>PHP</span><span>MySQL</span><span>CST</span><span>VNA</span></div>
+        <p class="m__h">主要功能</p>
+        <ul class="m__feat">
+          <li>测量各蜂箱的温度、湿度、CO2 和重量</li>
+          <li>用 ESP-NOW 把多个传感器板的数据汇总到一块板上发送</li>
+          <li>每分钟存入 MySQL</li>
+          <li>按传感器的数据表与 Google Charts 图表</li>
+          <li>统计蜜蜂进出的 Bee Counter 与蜂箱入口图片</li>
+        </ul>
+        <div class="stack"><span>ESP32</span><span>Arduino (C++)</span><span>ESP-NOW</span><span>DHT</span><span>MQ135</span><span>HX711</span><span>PHP</span><span>MySQL</span><span>Google Charts</span><span>CST</span><span>VNA</span></div>
         <div class="docs"><a href="https://github.com/user-attachments/files/26230478/Reflector.Array.5G._.pptx" target="_blank" rel="noopener">毕业作品：5G 反射板样板间</a><a href="https://github.com/user-attachments/files/26230574/Reflector.Array.5G._.-.pdf" target="_blank" rel="noopener">PDF</a></div>
     <p class="m__h">资料</p>
-    <div class="m__gallery"><!-- 照片·画面资料: <img src="img/..." alt=""> --></div>
+    <div class="m__gallery"><figure><a href="img/projects/hive-1.jpg" class="doc"><img src="img/projects/hive-1.jpg" alt="各蜂箱传感器状态界面（温湿度·CO2·重量）" loading="lazy"></a><figcaption>各蜂箱传感器状态界面（温湿度·CO2·重量）</figcaption></figure><figure><a href="img/projects/hive-2.jpg" class="doc"><img src="img/projects/hive-2.jpg" alt="各传感器温度·湿度变化图" loading="lazy"></a><figcaption>各传感器温度·湿度变化图</figcaption></figure></div>
   </div>
 </dialog>
 

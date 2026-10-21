@@ -280,6 +280,12 @@ dialog.m::backdrop{background:rgba(20,19,17,.55);backdrop-filter:blur(4px);-webk
 dialog.lb{width:min(820px,calc(100vw - 24px));background:var(--paper)}
 dialog.lb img{width:100%;height:auto;display:block;border-radius:0 0 18px 18px}
 dialog.lb .m__x{position:absolute;top:10px;right:10px;margin:0}
+/* 모달 — 주요 기능과 사진 설명 */
+.m__feat{margin:0;padding-left:18px;display:grid;gap:4px;color:var(--sub);font-size:.94rem}
+.m__gallery figure{margin:0;display:grid;gap:6px}
+.m__gallery figure a{display:block;border-radius:10px;overflow:hidden}
+.m__gallery figcaption{font-size:.8rem;color:var(--faint);line-height:1.5}
+.steps li{grid-template-columns:92px 1fr}
 /* 돌려 보기 — 단어·설명이 위로 빠지고 아래에서 올라옴 */
 .slot__w,.intro{transition:opacity .26s ease,transform .26s ease}
 .slot__w.out,.intro.out{opacity:0;transform:translateY(-8px)}
@@ -365,7 +371,7 @@ dialog.lb .m__x{position:absolute;top:10px;right:10px;margin:0}
   <div class="wrap nums">
     <div class="num up"><b><span class="cnt" data-to="3.93" data-dec="2">3.93</span><small> / 4.5</small></b><span>Overall GPA</span><em class="num__d">Major 4.05 / 4.5</em></div>
     <div class="num up"><b><span class="cnt" data-to="4">4</span><small> awards</small></b><span>Contest &amp; academic awards</span></div>
-    <div class="num up"><b><span class="cnt" data-to="6">6</span><small> roles</small></b><span>Leadership experience</span><em class="num__d">Team lead ×3 · Bootcamp class lead · Club president · Squad leader</em></div>
+    <div class="num up"><b><span class="cnt" data-to="7">7</span><small> roles</small></b><span>Leadership experience</span><em class="num__d">Team lead ×3 · Bootcamp class lead · Club president ×2 · Squad leader</em></div>
   </div>
 </section>
 
@@ -538,7 +544,8 @@ dialog.lb .m__x{position:absolute;top:10px;right:10px;margin:0}
         <div class="rows">
           <div class="row"><div>Automotive CAN/CAN-FD · Ethernet <small>Sungkyunkwan Univ., Future Automotive Program</small></div><span class="d">2024.06<a href="img/docs/can-certificate.jpg" class="doc" target="_blank" rel="noopener">CAN</a><a href="img/docs/ethernet-certificate.jpg" class="doc" target="_blank" rel="noopener">Ethernet</a></span></div>
           <div class="row"><div>Digital 3D Printing · Entrepreneurship Training <small>Incheon National University</small></div><span class="d">2023<a href="img/docs/3d-printing.jpg" class="doc" target="_blank" rel="noopener">3D Printing</a><a href="img/docs/entrepreneurship.jpg" class="doc" target="_blank" rel="noopener">Entrepreneurship</a></span></div>
-          <div class="row"><div>President, programming club NULL <small>Mentored juniors in C/C++; reorganized the learning support system</small></div><span class="d">2019 – 2024</span></div>
+          <div class="row"><div>Programming club NULL <small>President in 2023 · Mentored juniors in C/C++; reorganized the learning support system</small></div><span class="d">2019 – 2024</span></div>
+          <div class="row"><div>University futsal club Chaba <small>President</small></div><span class="d">2023 – 2024</span></div>
         </div>
       </div>
     </div>
@@ -573,14 +580,25 @@ dialog.lb .m__x{position:absolute;top:10px;right:10px;margin:0}
     <p class="m__sub">2024.04 – 10 · Team of 4</p>
       <span class="wk__win">ACK 2024 Paper Excellence Award · Hanium Contest Selected</span>
         <ul class="steps">
-          <li><em>Problem</em><span>In villas with tight parking, double parking and calls to move cars often cause friction between neighbors. Not knowing when a car would leave was the biggest annoyance.</span></li>
-          <li><em>What I did</em><span>I wrote the <b>requirements, screen design and ERD</b> myself, and had a camera read license plates (YOLOv8 + OCR) to show the status of each parking spot. When my first approach stalled for lack of training data, I reset the goal and switched to <b>predicting departure times with a Gaussian Process</b>.</span></li>
-          <li><em>Result</em><span>A paper excellence award and a contest selection. After the contest ended, I kept going <b>alone for five months</b> with a screen redesign, real-time updates and Docker deployment.</span></li>
+          <li><em>Problem</em><span>In small villa parking lots you <b>can’t see free spots</b>, and nobody knows when the car in front will leave, so “please move your car” calls are constant.</span></li>
+          <li><em>What I did</em><span>As team lead of four, I wrote the requirements, screen designs and ERD, and used <b>YOLOv8 for cars and EasyOCR for plates</b> to show per-spot status and expected departure times on a Django web app.</span></li>
+          <li><em>How it works</em><span>Recognition results go from the camera side to a server API, the server updates each spot, and the web shows status, departure times and a board. We demoed it on a scale-model lot.</span></li>
+          <li><em>Result</em><span><b>ACK 2024 Paper Excellence Award</b> and <b>Hanium ICT Mentoring Contest, Selected</b>.</span></li>
+          <li><em>After</em><span>After the contest I spent about five months on my own: <b>rebuilt the UI in React</b> with auto-refresh every 1.5 s, switched departure prediction to a <b>Gaussian Process</b> that stays stable with little data, and set up Docker and GitHub Actions deployment.</span></li>
         </ul>
-        <div class="stack"><span>YOLOv8</span><span>OCR</span><span>Gaussian Process</span><span>Django</span><span>React</span><span>MySQL</span><span>Docker</span><span>AWS EC2</span></div>
+        <p class="m__h">Key features</p>
+        <ul class="m__feat">
+          <li>Car detection + plate reading; misreads corrected by similarity matching</li>
+          <li>Per-spot status and free-spot count</li>
+          <li>Weekly departure schedule and predicted departure time</li>
+          <li>Spot recommendation combining distance, habits, neighbor departures and blocking risk (with score breakdown)</li>
+          <li>Notices, board, chat, nearby parking map</li>
+          <li>Korean / English / Japanese, demo mode without hardware</li>
+        </ul>
+        <div class="stack"><span>Python</span><span>Django</span><span>DRF</span><span>React</span><span>Vite</span><span>Tailwind CSS</span><span>YOLOv8</span><span>EasyOCR</span><span>OpenCV</span><span>Gaussian Process</span><span>Docker</span><span>GitHub Actions</span></div>
         <div class="docs"><a href="https://github.com/user-attachments/files/26230737/24._SW._HW._.x._.1.pptx" target="_blank" rel="noopener">Design document</a><a href="https://github.com/user-attachments/files/26230765/TEAM_._2024.ICT.pdf" target="_blank" rel="noopener">Project plan</a><a href="https://github.com/user-attachments/files/26230588/ICT.pdf" target="_blank" rel="noopener">Paper</a><a href="https://github.com/DohyunKang/DohyunKang/blob/main/assets/docs/smartparking-ja.pdf" target="_blank" rel="noopener">Improved version intro (日本語)</a></div>
     <p class="m__h">Materials</p>
-    <div class="m__gallery"><!-- 사진·화면 자료: <img src="img/..." alt=""> --></div>
+    <div class="m__gallery"><figure><a href="img/parking-app.jpg" class="doc"><img src="img/parking-app.jpg" alt="Improved version (v2) — recommended spot and live status" loading="lazy"></a><figcaption>Improved version (v2) — recommended spot and live status</figcaption></figure><figure><a href="img/projects/parking-1.jpg" class="doc"><img src="img/projects/parking-1.jpg" alt="First version — plate number and expected departure per spot" loading="lazy"></a><figcaption>First version — plate number and expected departure per spot</figcaption></figure><figure><a href="img/projects/parking-2.jpg" class="doc"><img src="img/projects/parking-2.jpg" alt="Camera view of the scale-model demo lot" loading="lazy"></a><figcaption>Camera view of the scale-model demo lot</figcaption></figure><figure><a href="img/projects/parking-3.jpg" class="doc"><img src="img/projects/parking-3.jpg" alt="Weekly entry/exit time settings" loading="lazy"></a><figcaption>Weekly entry/exit time settings</figcaption></figure></div>
   </div>
 </dialog>
 
@@ -592,14 +610,23 @@ dialog.lb .m__x{position:absolute;top:10px;right:10px;margin:0}
     <p class="m__sub">2023.05 – 07 · Team of 4</p>
       <span class="wk__win">Silver Prize, Industry-Academia Capstone Design</span>
         <ul class="steps">
-          <li><em>Problem</em><span>When someone collapses or is exposed to harmful gas on site, it is hard to raise the alarm right away. The goal was to detect danger and alert a manager with just a helmet.</span></li>
-          <li><em>What I did</em><span>Gyro and air-quality sensors detect falls and gas, and the data goes to the manager’s PC over <b>LoRa wireless</b>. I also built a <b>PyQt screen</b> for managers to see everything at a glance, plus an executable.</span></li>
-          <li><em>Result</em><span>I completed everything from design to prototype to the management screen, and won the Silver Prize at the Industry-Academia Capstone Design competition.</span></li>
+          <li><em>Problem</em><span>When a worker falls or is exposed to harmful gas on site, <b>the manager often can’t tell right away.</b></span></li>
+          <li><em>What I did</em><span>I designed the jig that mounts on the helmet, soldered the sensor circuit, and wrote the Arduino (SAMD21) firmware and a <b>PyQt5 monitoring app</b>.</span></li>
+          <li><em>How it works</em><span>The helmet sends CO2, TVOC, temperature, humidity, pressure and status over <b>LoRa</b>; the receiver adds signal strength (RSSI) and passes it to a PC, where the app shows each worker.</span></li>
+          <li><em>Result</em><span><b>Silver Prize</b>, 2023 INU Industry-Academia Capstone Design Competition.</span></li>
         </ul>
-        <div class="stack"><span>SAMD21G</span><span>Arduino</span><span>LoRa</span><span>Python</span><span>PyQt5</span></div>
+        <p class="m__h">Key features</p>
+        <ul class="m__feat">
+          <li>Fall detection by accelerometer; no movement for 10 s counts as an accident</li>
+          <li>Buzzer alarm on the helmet; monitoring screen turns red</li>
+          <li>Dangerous values highlighted (e.g. CO2 over 1000 ppm)</li>
+          <li>Up to 6 workers at once; “disconnected” after 4 s without signal</li>
+          <li>Long-range LoRa radio</li>
+        </ul>
+        <div class="stack"><span>Arduino (SAMD21)</span><span>C/C++</span><span>LoRa (RFM95)</span><span>LSM6DS3</span><span>CCS811</span><span>BME280</span><span>Python</span><span>PyQt5</span></div>
         <div class="docs"><a href="https://github.com/DohyunKang/DohyunKang/blob/main/assets/docs/safety-helmet-final-report.pdf" target="_blank" rel="noopener">Final report</a><a href="https://github.com/user-attachments/files/29079632/capstone_helmet_JP_full.pdf" target="_blank" rel="noopener">日本語</a><a href="img/docs/capstone-silver.jpg" class="doc" target="_blank" rel="noopener">Certificate</a></div>
     <p class="m__h">Materials</p>
-    <div class="m__gallery"><!-- 사진·화면 자료: <img src="img/..." alt=""> --></div>
+    <div class="m__gallery"><figure><a href="img/projects/helmet-1.jpg" class="doc"><img src="img/projects/helmet-1.jpg" alt="Helmet prototype with sensors, LoRa module and battery" loading="lazy"></a><figcaption>Helmet prototype with sensors, LoRa module and battery</figcaption></figure><figure><a href="img/projects/helmet-2.jpg" class="doc"><img src="img/projects/helmet-2.jpg" alt="Monitoring app — worker 1’s sensor values and status (normal)" loading="lazy"></a><figcaption>Monitoring app — worker 1’s sensor values and status (normal)</figcaption></figure></div>
   </div>
 </dialog>
 
@@ -610,14 +637,23 @@ dialog.lb .m__x{position:absolute;top:10px;right:10px;margin:0}
     <div class="wk__top"><h3>Beekeeping IoT</h3><div class="tags"><span class="tag">Industry-Academia</span></div></div>
     <p class="m__sub">2022.09 – 2023.12 · High-Frequency Antenna Design Lab</p>
         <ul class="steps">
-          <li><em>Problem</em><span>It is hard for a person to check temperature, humidity and gas changes inside a hive every time.</span></li>
-          <li><em>What I did</em><span>I attached temperature, humidity and gas sensors to an ESP32, sent the data over Wi-Fi, and made it viewable remotely through a server and a <b>MySQL web page</b>. In the lab, I also handled CST antenna design and VNA and spectrum analyzer measurements.</span></li>
-          <li><em>Result</em><span>In a project with a government agency and a university, I connected everything from hardware to the web in one go.</span></li>
+          <li><em>Background</em><span>A Rural Development Administration project with <b>Andong National University</b> to watch beehives remotely.</span></li>
+          <li><em>What I did</em><span>I wrote ESP32 firmware for temperature/humidity (DHT), gas (MQ135) and weight (load cell) sensors, and a <b>PHP + MySQL website</b> to store and show the data. In the lab I also did CST antenna design and VNA / spectrum analyzer measurements.</span></li>
+          <li><em>How it works</em><span>A sensor board in each hive sends readings to a master board over <b>ESP-NOW</b>, and the master uploads them over Wi-Fi. Boards deep-sleep between readings to save power.</span></li>
+          <li><em>Result</em><span>Data from three hives and the outside environment can be watched live on the web, with graphs by period and Excel export.</span></li>
         </ul>
-        <div class="stack"><span>ESP32</span><span>DHT · MQ sensors</span><span>PHP</span><span>MySQL</span><span>CST</span><span>VNA</span></div>
+        <p class="m__h">Key features</p>
+        <ul class="m__feat">
+          <li>Temperature, humidity, CO2 and weight per hive</li>
+          <li>ESP-NOW gathers several sensor boards into one uplink</li>
+          <li>Saved to MySQL every minute</li>
+          <li>Per-sensor tables and Google Charts graphs</li>
+          <li>Bee Counter for in/out counts with hive-entrance images</li>
+        </ul>
+        <div class="stack"><span>ESP32</span><span>Arduino (C++)</span><span>ESP-NOW</span><span>DHT</span><span>MQ135</span><span>HX711</span><span>PHP</span><span>MySQL</span><span>Google Charts</span><span>CST</span><span>VNA</span></div>
         <div class="docs"><a href="https://github.com/user-attachments/files/26230478/Reflector.Array.5G._.pptx" target="_blank" rel="noopener">Graduation project: 5G reflector model house</a><a href="https://github.com/user-attachments/files/26230574/Reflector.Array.5G._.-.pdf" target="_blank" rel="noopener">PDF</a></div>
     <p class="m__h">Materials</p>
-    <div class="m__gallery"><!-- 사진·화면 자료: <img src="img/..." alt=""> --></div>
+    <div class="m__gallery"><figure><a href="img/projects/hive-1.jpg" class="doc"><img src="img/projects/hive-1.jpg" alt="Per-hive sensor dashboard (temp/humidity, CO2, weight)" loading="lazy"></a><figcaption>Per-hive sensor dashboard (temp/humidity, CO2, weight)</figcaption></figure><figure><a href="img/projects/hive-2.jpg" class="doc"><img src="img/projects/hive-2.jpg" alt="Temperature and humidity graphs per sensor" loading="lazy"></a><figcaption>Temperature and humidity graphs per sensor</figcaption></figure></div>
   </div>
 </dialog>
 

@@ -280,6 +280,12 @@ dialog.m::backdrop{background:rgba(20,19,17,.55);backdrop-filter:blur(4px);-webk
 dialog.lb{width:min(820px,calc(100vw - 24px));background:var(--paper)}
 dialog.lb img{width:100%;height:auto;display:block;border-radius:0 0 18px 18px}
 dialog.lb .m__x{position:absolute;top:10px;right:10px;margin:0}
+/* 모달 — 주요 기능과 사진 설명 */
+.m__feat{margin:0;padding-left:18px;display:grid;gap:4px;color:var(--sub);font-size:.94rem}
+.m__gallery figure{margin:0;display:grid;gap:6px}
+.m__gallery figure a{display:block;border-radius:10px;overflow:hidden}
+.m__gallery figcaption{font-size:.8rem;color:var(--faint);line-height:1.5}
+.steps li{grid-template-columns:92px 1fr}
 /* 돌려 보기 — 단어·설명이 위로 빠지고 아래에서 올라옴 */
 .slot__w,.intro{transition:opacity .26s ease,transform .26s ease}
 .slot__w.out,.intro.out{opacity:0;transform:translateY(-8px)}
@@ -365,7 +371,7 @@ dialog.lb .m__x{position:absolute;top:10px;right:10px;margin:0}
   <div class="wrap nums">
     <div class="num up"><b><span class="cnt" data-to="3.93" data-dec="2">3.93</span><small> / 4.5</small></b><span>GPA（全体）</span><em class="num__d">専攻 4.05 / 4.5</em></div>
     <div class="num up"><b><span class="cnt" data-to="4">4</span><small>件</small></b><span>コンテスト・学術での受賞</span></div>
-    <div class="num up"><b><span class="cnt" data-to="6">6</span><small>回</small></b><span>リーダー経験</span><em class="num__d">チームリーダー3回 · ブートキャンプのクラス代表 · サークル会長 · 分隊長</em></div>
+    <div class="num up"><b><span class="cnt" data-to="7">7</span><small>回</small></b><span>リーダー経験</span><em class="num__d">チームリーダー3回 · ブートキャンプのクラス代表 · サークル会長2回 · 分隊長</em></div>
   </div>
 </section>
 
@@ -538,7 +544,8 @@ dialog.lb .m__x{position:absolute;top:10px;right:10px;margin:0}
         <div class="rows">
           <div class="row"><div>車載用CAN/CAN-FD · Ethernet <small>成均館大学 未来型自動車事業団</small></div><span class="d">2024.06<a href="img/docs/can-certificate.jpg" class="doc" target="_blank" rel="noopener">CAN</a><a href="img/docs/ethernet-certificate.jpg" class="doc" target="_blank" rel="noopener">Ethernet</a></span></div>
           <div class="row"><div>デジタル3Dプリンティング · 起業家精神教育 <small>仁川大学</small></div><span class="d">2023<a href="img/docs/3d-printing.jpg" class="doc" target="_blank" rel="noopener">3Dプリンティング</a><a href="img/docs/entrepreneurship.jpg" class="doc" target="_blank" rel="noopener">起業家精神</a></span></div>
-          <div class="row"><div>プログラミングサークルNULL 会長 <small>後輩へのC/C++メンタリング、学習支援体制の再整備</small></div><span class="d">2019 – 2024</span></div>
+          <div class="row"><div>プログラミングサークルNULL <small>2023年 会長 · 後輩へのC/C++メンタリング、学習支援体制の再整備</small></div><span class="d">2019 – 2024</span></div>
+          <div class="row"><div>大学フットサルサークルChaba <small>会長</small></div><span class="d">2023 – 2024</span></div>
         </div>
       </div>
     </div>
@@ -573,14 +580,25 @@ dialog.lb .m__x{position:absolute;top:10px;right:10px;margin:0}
     <p class="m__sub">2024.04 – 10 · 4人チーム</p>
       <span class="wk__win">ACK 2024 論文優秀賞 · ハンイウム(Hanium)コンテスト 入選</span>
         <ul class="steps">
-          <li><em>課題</em><span>駐車スペースの狭いヴィラでは、二重駐車や出庫の連絡をめぐって近隣トラブルが起きがちです。車がいつ出るのか分からないことが、一番の不便でした。</span></li>
-          <li><em>取り組み</em><span><b>要件定義・画面設計・ERD</b>を自分で書き、カメラでナンバープレートを読み取って(YOLOv8 + OCR)区画ごとの駐車状況を表示できるようにしました。学習データが足りず最初の方法が行き詰まったため、目標を立て直し、<b>Gaussian Processで出庫時間を予測</b>する方式に変えました。</span></li>
-          <li><em>成果</em><span>論文優秀賞とコンテスト入選。コンテスト終了後も<b>5か月間ひとりで</b>、画面の刷新、リアルタイム更新、Dockerでのデプロイまで続けました。</span></li>
+          <li><em>課題</em><span>狭いヴィラの駐車場では<b>空きが分からず</b>、前の車がいつ出るかも分からないため、「車を動かして」という連絡が絶えません。</span></li>
+          <li><em>やったこと</em><span>4人チームのリーダーとして要件・画面設計・ERDを書き、<b>YOLOv8で車両、EasyOCRでナンバー</b>を読み取って、Djangoのウェブに区画ごとの駐車状況と出庫予測時間を表示しました。</span></li>
+          <li><em>仕組み</em><span>カメラ側の認識結果をサーバーAPIに送ると、サーバーが区画の状態を更新し、ウェブが状況・出庫時間・掲示板を表示します。縮小模型の駐車場でデモしました。</span></li>
+          <li><em>結果</em><span><b>ACK 2024 論文優秀賞</b>、<b>ハンイウムICTメンタリング公募展 入選</b>。</span></li>
+          <li><em>その後</em><span>公募展の後も約5か月、一人で<b>Reactで画面を作り直し</b>、1.5秒ごとの自動更新にしました。出庫予測はデータが少なくても安定する<b>ガウス過程</b>に変え、DockerとGitHub Actionsでデプロイまで整えました。</span></li>
         </ul>
-        <div class="stack"><span>YOLOv8</span><span>OCR</span><span>Gaussian Process</span><span>Django</span><span>React</span><span>MySQL</span><span>Docker</span><span>AWS EC2</span></div>
+        <p class="m__h">主な機能</p>
+        <ul class="m__feat">
+          <li>車両認識＋ナンバー読み取り、誤読は類似度マッチングで補正</li>
+          <li>区画ごとの駐車状況と空き台数</li>
+          <li>曜日ごとの出庫時間登録と出庫予測</li>
+          <li>距離・習慣・隣の車の出庫・ふさがりリスクを合わせた区画おすすめ（スコアの根拠を表示）</li>
+          <li>お知らせ・掲示板・チャット、周辺駐車場マップ</li>
+          <li>韓国語・英語・日本語、機器なしで動かせるデモモード</li>
+        </ul>
+        <div class="stack"><span>Python</span><span>Django</span><span>DRF</span><span>React</span><span>Vite</span><span>Tailwind CSS</span><span>YOLOv8</span><span>EasyOCR</span><span>OpenCV</span><span>Gaussian Process</span><span>Docker</span><span>GitHub Actions</span></div>
         <div class="docs"><a href="https://github.com/user-attachments/files/26230737/24._SW._HW._.x._.1.pptx" target="_blank" rel="noopener">設計書</a><a href="https://github.com/user-attachments/files/26230765/TEAM_._2024.ICT.pdf" target="_blank" rel="noopener">実施計画書</a><a href="https://github.com/user-attachments/files/26230588/ICT.pdf" target="_blank" rel="noopener">論文</a><a href="https://github.com/DohyunKang/DohyunKang/blob/main/assets/docs/smartparking-ja.pdf" target="_blank" rel="noopener">改良版の紹介 (日本語)</a></div>
     <p class="m__h">資料</p>
-    <div class="m__gallery"><!-- 写真・画面資料: <img src="img/..." alt=""> --></div>
+    <div class="m__gallery"><figure><a href="img/parking-app.jpg" class="doc"><img src="img/parking-app.jpg" alt="改善版（v2）— おすすめ区画とリアルタイム状況" loading="lazy"></a><figcaption>改善版（v2）— おすすめ区画とリアルタイム状況</figcaption></figure><figure><a href="img/projects/parking-1.jpg" class="doc"><img src="img/projects/parking-1.jpg" alt="初期版の駐車状況 — 区画ごとの車両番号と出庫予測時間" loading="lazy"></a><figcaption>初期版の駐車状況 — 区画ごとの車両番号と出庫予測時間</figcaption></figure><figure><a href="img/projects/parking-2.jpg" class="doc"><img src="img/projects/parking-2.jpg" alt="デモ用縮小模型駐車場のカメラ映像" loading="lazy"></a><figcaption>デモ用縮小模型駐車場のカメラ映像</figcaption></figure><figure><a href="img/projects/parking-3.jpg" class="doc"><img src="img/projects/parking-3.jpg" alt="曜日ごとの入庫・出庫時間の設定画面" loading="lazy"></a><figcaption>曜日ごとの入庫・出庫時間の設定画面</figcaption></figure></div>
   </div>
 </dialog>
 
@@ -592,14 +610,23 @@ dialog.lb .m__x{position:absolute;top:10px;right:10px;margin:0}
     <p class="m__sub">2023.05 – 07 · 4人チーム</p>
       <span class="wk__win">産学キャップストーンデザイン 銀賞</span>
         <ul class="steps">
-          <li><em>課題</em><span>現場で作業員が倒れたり有害ガスにさらされたりしても、すぐに知らせるのは困難です。ヘルメット一つで危険を検知し、管理者に知らせることが目標でした。</span></li>
-          <li><em>取り組み</em><span>ジャイロ・空気質センサーで転倒とガスを検知し、<b>LoRa無線</b>で管理者のPCに送りました。管理者が一目で確認できる<b>PyQt画面</b>と実行ファイルまで作りました。</span></li>
-          <li><em>成果</em><span>設計から試作品、管理画面まで完成させ、産学キャップストーンデザインコンテストで銀賞をいただきました。</span></li>
+          <li><em>課題</em><span>現場で作業者が倒れたり有害ガスにさらされたりしても、<b>管理者がすぐに気づきにくい</b>状況でした。</span></li>
+          <li><em>やったこと</em><span>ヘルメットに取り付ける治具を設計し、センサーをはんだ付けして回路を作り、Arduino（SAMD21）のファームウェアと<b>PyQt5の監視プログラム</b>を書きました。</span></li>
+          <li><em>仕組み</em><span>ヘルメットがCO2・TVOC・温湿度・気圧の値と状態を<b>LoRa</b>で送ると、受信機が電波強度（RSSI）を付けてPCに渡し、監視画面が作業者ごとに表示します。</span></li>
+          <li><em>結果</em><span>2023 仁川大学 産学キャップストーンデザイン大会 <b>銀賞</b>。</span></li>
         </ul>
-        <div class="stack"><span>SAMD21G</span><span>Arduino</span><span>LoRa</span><span>Python</span><span>PyQt5</span></div>
+        <p class="m__h">主な機能</p>
+        <ul class="m__feat">
+          <li>加速度センサーで転倒を検知、10秒動きがなければ事故と判断</li>
+          <li>事故時はヘルメットのブザーが鳴り、監視画面が赤に</li>
+          <li>CO2 1000ppm超など危険な数値を強調</li>
+          <li>最大6人を同時に監視、4秒以上信号が途切れると「接続切れ」表示</li>
+          <li>LoRaによる長距離無線通信</li>
+        </ul>
+        <div class="stack"><span>Arduino (SAMD21)</span><span>C/C++</span><span>LoRa (RFM95)</span><span>LSM6DS3</span><span>CCS811</span><span>BME280</span><span>Python</span><span>PyQt5</span></div>
         <div class="docs"><a href="https://github.com/DohyunKang/DohyunKang/blob/main/assets/docs/safety-helmet-final-report.pdf" target="_blank" rel="noopener">最終報告書</a><a href="https://github.com/user-attachments/files/29079632/capstone_helmet_JP_full.pdf" target="_blank" rel="noopener">日本語</a><a href="img/docs/capstone-silver.jpg" class="doc" target="_blank" rel="noopener">賞状</a></div>
     <p class="m__h">資料</p>
-    <div class="m__gallery"><!-- 写真・画面資料: <img src="img/..." alt=""> --></div>
+    <div class="m__gallery"><figure><a href="img/projects/helmet-1.jpg" class="doc"><img src="img/projects/helmet-1.jpg" alt="センサー・LoRaモジュール・バッテリーを付けたヘルメット試作品" loading="lazy"></a><figcaption>センサー・LoRaモジュール・バッテリーを付けたヘルメット試作品</figcaption></figure><figure><a href="img/projects/helmet-2.jpg" class="doc"><img src="img/projects/helmet-2.jpg" alt="監視プログラム — 作業者1のセンサー値と状態（正常）" loading="lazy"></a><figcaption>監視プログラム — 作業者1のセンサー値と状態（正常）</figcaption></figure></div>
   </div>
 </dialog>
 
@@ -610,14 +637,23 @@ dialog.lb .m__x{position:absolute;top:10px;right:10px;margin:0}
     <div class="wk__top"><h3>養蜂IoT</h3><div class="tags"><span class="tag">産学協力</span></div></div>
     <p class="m__sub">2022.09 – 2023.12 · 高周波アンテナ設計研究室</p>
         <ul class="steps">
-          <li><em>課題</em><span>巣箱の中の温湿度やガスの変化を、人が毎回確認するのは大変です。</span></li>
-          <li><em>取り組み</em><span>ESP32に温湿度・ガスセンサーを取り付けてWi-Fiで送信し、サーバーと<b>MySQLのWebページ</b>で遠隔から確認できるようにしました。研究室ではCSTでのアンテナ設計や、VNA・スペクトラムアナライザでの測定も担当しました。</span></li>
-          <li><em>成果</em><span>政府機関・大学と共に進めた課題で、ハードウェアからWebまでを一通りつなぐ経験をしました。</span></li>
+          <li><em>背景</em><span>農村振興庁の課題として<b>安東大学</b>と共に、巣箱の状態を遠隔で見守るシステムを作りました。</span></li>
+          <li><em>やったこと</em><span>ESP32に温湿度（DHT）・ガス（MQ135）・重量（ロードセル）センサーをつなぐファームウェアと、データを保存・表示する<b>PHP・MySQLのウェブ</b>を作りました。研究室ではCSTによるアンテナ設計とVNA・スペクトラムアナライザでの測定も担当しました。</span></li>
+          <li><em>仕組み</em><span>巣箱ごとのセンサーボードが<b>ESP-NOW</b>でマスターボードに値を送り、マスターがWi-Fiでサーバーに上げます。省電力のため測定の合間はディープスリープに入ります。</span></li>
+          <li><em>結果</em><span>巣箱3か所と外部環境のデータをウェブでリアルタイムに確認でき、期間別グラフとExcel出力で振り返れるようにしました。</span></li>
         </ul>
-        <div class="stack"><span>ESP32</span><span>DHT · MQセンサー</span><span>PHP</span><span>MySQL</span><span>CST</span><span>VNA</span></div>
+        <p class="m__h">主な機能</p>
+        <ul class="m__feat">
+          <li>巣箱ごとの温度・湿度・CO2・重量を測定</li>
+          <li>ESP-NOWで複数のセンサーボードのデータを1台に集約して送信</li>
+          <li>1分ごとにMySQLへ保存</li>
+          <li>センサー別のデータ表とGoogle Chartsのグラフ</li>
+          <li>蜂の出入りを数えるBee Counterと巣箱入口の画像</li>
+        </ul>
+        <div class="stack"><span>ESP32</span><span>Arduino (C++)</span><span>ESP-NOW</span><span>DHT</span><span>MQ135</span><span>HX711</span><span>PHP</span><span>MySQL</span><span>Google Charts</span><span>CST</span><span>VNA</span></div>
         <div class="docs"><a href="https://github.com/user-attachments/files/26230478/Reflector.Array.5G._.pptx" target="_blank" rel="noopener">卒業作品: 5G反射板モデルハウス</a><a href="https://github.com/user-attachments/files/26230574/Reflector.Array.5G._.-.pdf" target="_blank" rel="noopener">PDF</a></div>
     <p class="m__h">資料</p>
-    <div class="m__gallery"><!-- 写真・画面資料: <img src="img/..." alt=""> --></div>
+    <div class="m__gallery"><figure><a href="img/projects/hive-1.jpg" class="doc"><img src="img/projects/hive-1.jpg" alt="巣箱ごとのセンサー状況画面（温湿度・CO2・重量）" loading="lazy"></a><figcaption>巣箱ごとのセンサー状況画面（温湿度・CO2・重量）</figcaption></figure><figure><a href="img/projects/hive-2.jpg" class="doc"><img src="img/projects/hive-2.jpg" alt="センサー別の温度・湿度の推移グラフ" loading="lazy"></a><figcaption>センサー別の温度・湿度の推移グラフ</figcaption></figure></div>
   </div>
 </dialog>
 

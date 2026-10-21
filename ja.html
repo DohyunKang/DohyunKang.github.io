@@ -251,9 +251,6 @@ dialog.m::backdrop{background:rgba(20,19,17,.55);backdrop-filter:blur(4px);-webk
 .num b{display:block;font-size:clamp(1.8rem,3.6vw,2.5rem);font-weight:800;letter-spacing:-.04em;line-height:1.1;font-variant-numeric:tabular-nums}
 .num b small{font-size:.48em;color:var(--faint);font-weight:700;letter-spacing:0}
 .num>span{font-size:.86rem;color:var(--sub)}
-.num b small.pre{font-size:.42em;color:var(--sub);letter-spacing:0;margin-right:2px}
-.num b.b2{font-size:clamp(1.15rem,2.2vw,1.45rem);margin:2px 0 4px}
-.num b.b2 small{font-size:.6em}
 .num__d{display:block;font-style:normal;font-size:.76rem;color:var(--faint);margin-top:2px;line-height:1.5}
 @media (max-width:760px){.nums{grid-template-columns:repeat(2,1fr)}}
 .job{position:relative;border-top-color:transparent}
@@ -363,7 +360,7 @@ dialog.m::backdrop{background:rgba(20,19,17,.55);backdrop-filter:blur(4px);-webk
     </div>
   </div>
   <div class="wrap nums">
-    <div class="num up"><b><small class="pre">全体 </small><span class="cnt" data-to="3.93" data-dec="2">3.93</span><small> / 4.5</small></b><b class="b2"><small class="pre">専攻 </small>4.05<small> / 4.5</small></b><span>GPA</span></div>
+    <div class="num up"><b><span class="cnt" data-to="3.93" data-dec="2">3.93</span><small> / 4.5</small></b><span>GPA（全体）</span><em class="num__d">専攻 4.05 / 4.5</em></div>
     <div class="num up"><b><span class="cnt" data-to="4">4</span><small>件</small></b><span>コンテスト・学術での受賞</span></div>
     <div class="num up"><b><span class="cnt" data-to="6">6</span><small>回</small></b><span>リーダー経験</span><em class="num__d">チームリーダー3回 · ブートキャンプのクラス代表 · サークル会長 · 分隊長</em></div>
   </div>

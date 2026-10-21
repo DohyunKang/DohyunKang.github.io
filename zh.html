@@ -276,6 +276,10 @@ dialog.m::backdrop{background:rgba(20,19,17,.55);backdrop-filter:blur(4px);-webk
 .wk.lock{cursor:default}
 .cover.c4{background:color-mix(in srgb,#7A5AF8 13%,var(--paper))}
 .cover.c5{background:color-mix(in srgb,#8A929E 16%,var(--paper))}
+/* 증명서 크게 보기 */
+dialog.lb{width:min(820px,calc(100vw - 24px));background:var(--paper)}
+dialog.lb img{width:100%;height:auto;display:block;border-radius:0 0 18px 18px}
+dialog.lb .m__x{position:absolute;top:10px;right:10px;margin:0}
 /* 돌려 보기 — 단어·설명이 위로 빠지고 아래에서 올라옴 */
 .slot__w,.intro{transition:opacity .26s ease,transform .26s ease}
 .slot__w.out,.intro.out{opacity:0;transform:translateY(-8px)}
@@ -508,7 +512,7 @@ dialog.m::backdrop{background:rgba(20,19,17,.55);backdrop-filter:blur(4px);-webk
     <div class="grid2">
       <div class="box up">
         <h3><span class="it">School</span>学历</h3>
-        <div class="rows"><div class="row"><div>仁川大学 信息通信工程系 <small>工学学士</small></div><span class="d">2019.03 – 2025.02</span></div></div>
+        <div class="rows"><div class="row"><div>仁川大学 信息通信工程系 <small>工学学士</small></div><span class="d">2019.03 – 2025.02<a href="img/docs/transcript.jpg" class="doc" target="_blank" rel="noopener">成绩证明</a></span></div></div>
         <div class="gpa"><div><b>3.93<small> / 4.5</small></b><span>总学分</span></div><div><b>4.05<small> / 4.5</small></b><span>专业学分</span></div></div>
       </div>
       <div class="box up">
@@ -523,17 +527,17 @@ dialog.m::backdrop{background:rgba(20,19,17,.55);backdrop-filter:blur(4px);-webk
       <div class="box up">
         <h3><span class="it">Awards</span>获奖</h3>
         <div class="rows">
-          <div class="row"><div>现场实习心得征文大赛 最优秀奖 <small>仁川大学</small></div><span class="d">2025.02<a href="https://github.com/DohyunKang/DohyunKang/blob/main/assets/docs/techways-essay.pdf" target="_blank" rel="noopener">心得</a></span></div>
-          <div class="row"><div>ACK 2024 论文优秀奖 <small>韩国信息处理学会 ICT 导师制学术大会</small></div><span class="d">2024.11<a href="https://github.com/DohyunKang/DohyunKang/blob/main/assets/certs/ack2024-excellence.jpg" target="_blank" rel="noopener">奖状</a></span></div>
-          <div class="row"><div>Hanium ICT 导师制竞赛 入选 <small>韩国信息产业联合会</small></div><span class="d">2024.12</span></div>
-          <div class="row"><div>产学 Capstone Design 银奖 <small>仁川大学</small></div><span class="d">2023.07<a href="https://github.com/DohyunKang/DohyunKang/blob/main/assets/certs/capstone-silver-2023.jpg" target="_blank" rel="noopener">奖状</a></span></div>
+          <div class="row"><div>现场实习心得征文大赛 最优秀奖 <small>仁川大学</small></div><span class="d">2025.02<a href="https://github.com/DohyunKang/DohyunKang/blob/main/assets/docs/techways-essay.pdf" target="_blank" rel="noopener">心得</a><a href="img/docs/essay-grand-prize.jpg" class="doc" target="_blank" rel="noopener">奖状</a></span></div>
+          <div class="row"><div>ACK 2024 论文优秀奖 <small>韩国信息处理学会 ICT 导师制学术大会</small></div><span class="d">2024.11<a href="img/docs/ack2024-excellence.jpg" class="doc" target="_blank" rel="noopener">奖状</a></span></div>
+          <div class="row"><div>Hanium ICT 导师制竞赛 入选 <small>韩国信息产业联合会</small></div><span class="d">2024.12<a href="img/docs/hanium-award.jpg" class="doc" target="_blank" rel="noopener">获奖确认书</a><a href="img/docs/hanium-done.jpg" class="doc" target="_blank" rel="noopener">参与确认书</a></span></div>
+          <div class="row"><div>产学 Capstone Design 银奖 <small>仁川大学</small></div><span class="d">2023.07<a href="img/docs/capstone-silver.jpg" class="doc" target="_blank" rel="noopener">奖状</a></span></div>
         </div>
       </div>
       <div class="box up">
         <h3><span class="it">More</span>培训 · 活动</h3>
         <div class="rows">
-          <div class="row"><div>车载 CAN/CAN-FD · Ethernet <small>成均馆大学未来汽车事业团</small></div><span class="d">2024.06<a href="https://github.com/DohyunKang/DohyunKang/blob/main/assets/certs/automotive-can.jpg" target="_blank" rel="noopener">CAN</a><a href="https://github.com/DohyunKang/DohyunKang/blob/main/assets/certs/automotive-ethernet.jpg" target="_blank" rel="noopener">Ethernet</a></span></div>
-          <div class="row"><div>数字 3D 打印 · 创业精神培训 <small>仁川大学</small></div><span class="d">2023<a href="https://github.com/DohyunKang/DohyunKang/blob/main/assets/docs/3d-printing-certificate.pdf" target="_blank" rel="noopener">3D 打印</a><a href="https://github.com/DohyunKang/DohyunKang/blob/main/assets/certs/entrepreneurship.jpg" target="_blank" rel="noopener">创业精神</a></span></div>
+          <div class="row"><div>车载 CAN/CAN-FD · Ethernet <small>成均馆大学未来汽车事业团</small></div><span class="d">2024.06<a href="img/docs/can-certificate.jpg" class="doc" target="_blank" rel="noopener">CAN</a><a href="img/docs/ethernet-certificate.jpg" class="doc" target="_blank" rel="noopener">Ethernet</a></span></div>
+          <div class="row"><div>数字 3D 打印 · 创业精神培训 <small>仁川大学</small></div><span class="d">2023<a href="img/docs/3d-printing.jpg" class="doc" target="_blank" rel="noopener">3D 打印</a><a href="img/docs/entrepreneurship.jpg" class="doc" target="_blank" rel="noopener">创业精神</a></span></div>
           <div class="row"><div>编程社团 NULL 会长 <small>为学弟学妹提供 C/C++ 辅导，重整学习支持体系</small></div><span class="d">2019 – 2024</span></div>
         </div>
       </div>
@@ -593,7 +597,7 @@ dialog.m::backdrop{background:rgba(20,19,17,.55);backdrop-filter:blur(4px);-webk
           <li><em>成果</em><span>从设计、原型到管理界面全部完成，获得产学 Capstone Design 竞赛银奖。</span></li>
         </ul>
         <div class="stack"><span>SAMD21G</span><span>Arduino</span><span>LoRa</span><span>Python</span><span>PyQt5</span></div>
-        <div class="docs"><a href="https://github.com/DohyunKang/DohyunKang/blob/main/assets/docs/safety-helmet-final-report.pdf" target="_blank" rel="noopener">最终报告</a><a href="https://github.com/user-attachments/files/29079632/capstone_helmet_JP_full.pdf" target="_blank" rel="noopener">日本語</a><a href="https://github.com/DohyunKang/DohyunKang/blob/main/assets/certs/capstone-silver-2023.jpg" target="_blank" rel="noopener">奖状</a></div>
+        <div class="docs"><a href="https://github.com/DohyunKang/DohyunKang/blob/main/assets/docs/safety-helmet-final-report.pdf" target="_blank" rel="noopener">最终报告</a><a href="https://github.com/user-attachments/files/29079632/capstone_helmet_JP_full.pdf" target="_blank" rel="noopener">日本語</a><a href="img/docs/capstone-silver.jpg" class="doc" target="_blank" rel="noopener">奖状</a></div>
     <p class="m__h">资料</p>
     <div class="m__gallery"><!-- 照片·画面资料: <img src="img/..." alt=""> --></div>
   </div>
@@ -615,6 +619,11 @@ dialog.m::backdrop{background:rgba(20,19,17,.55);backdrop-filter:blur(4px);-webk
     <p class="m__h">资料</p>
     <div class="m__gallery"><!-- 照片·画面资料: <img src="img/..." alt=""> --></div>
   </div>
+</dialog>
+
+<dialog class="m lb" id="lb" aria-label="成绩证明">
+  <button type="button" class="m__x" aria-label="关闭">✕</button>
+  <img alt="">
 </dialog>
 
 <footer>
@@ -694,6 +703,16 @@ dialog.m::backdrop{background:rgba(20,19,17,.55);backdrop-filter:blur(4px);-webk
   document.querySelectorAll('dialog.m').forEach(function(d){
     d.addEventListener('click',function(e){ if(e.target===d||e.target.closest('.m__x')) d.close(); });
     d.addEventListener('close',function(){ document.body.style.overflow=''; });
+  });
+
+  // 증명서 — 새 창 대신 크게 보기
+  var lb=document.getElementById('lb');
+  document.querySelectorAll('a.doc').forEach(function(a){
+    a.addEventListener('click',function(e){
+      if(!lb||!lb.showModal)return; e.preventDefault();
+      var im=lb.querySelector('img'); im.src=a.getAttribute('href'); im.alt=a.textContent;
+      lb.showModal(); document.body.style.overflow='hidden';
+    });
   });
 
   var hd=document.querySelector('header');

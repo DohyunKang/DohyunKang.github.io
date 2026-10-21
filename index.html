@@ -279,7 +279,10 @@ dialog.m::backdrop{background:rgba(20,19,17,.55);backdrop-filter:blur(4px);-webk
 /* 증명서 크게 보기 */
 dialog.lb{width:min(820px,calc(100vw - 24px));background:var(--paper)}
 dialog.lb img{width:100%;height:auto;display:block;border-radius:0 0 18px 18px}
-dialog.lb .m__x{position:absolute;top:10px;right:10px;margin:0}
+dialog.lb .m__x{position:sticky;top:10px;float:right;margin:10px 10px -48px 0}
+dialog.lb img+img{margin-top:10px;border-radius:0}
+dialog.lb.multi img{border-radius:0}
+dialog.lb .lb__full{display:block;padding:16px;text-align:center;font-size:.88rem;font-weight:600;color:var(--accent)}
 /* 모달 — 주요 기능과 사진 설명 */
 .m__feat{margin:0;padding-left:18px;display:grid;gap:4px;color:var(--sub);font-size:.94rem}
 .m__gallery figure{margin:0;display:grid;gap:6px}
@@ -533,7 +536,7 @@ dialog.lb .m__x{position:absolute;top:10px;right:10px;margin:0}
       <div class="box up">
         <h3><span class="it">Awards</span>수상</h3>
         <div class="rows">
-          <div class="row"><div>현장교육실습 수기공모전 최우수상 <small>인천대학교</small></div><span class="d">2025.02<a href="https://github.com/DohyunKang/DohyunKang/blob/main/assets/docs/techways-essay.pdf" target="_blank" rel="noopener">수기</a><a href="img/docs/essay-grand-prize.jpg" class="doc" target="_blank" rel="noopener">상장</a></span></div>
+          <div class="row"><div>현장교육실습 수기공모전 최우수상 <small>인천대학교</small></div><span class="d">2025.02<a href="img/docs/essay/1.jpg" class="doc" data-n="19" target="_blank" rel="noopener">수기</a><a href="img/docs/essay-grand-prize.jpg" class="doc" target="_blank" rel="noopener">상장</a></span></div>
           <div class="row"><div>ACK 2024 논문 우수상 <small>한국정보처리학회 ICT 멘토링 학술대회</small></div><span class="d">2024.11<a href="img/docs/ack2024-excellence.jpg" class="doc" target="_blank" rel="noopener">상장</a></span></div>
           <div class="row"><div>한이음 ICT 멘토링 공모전 입선 <small>한국정보산업연합회</small></div><span class="d">2024.12<a href="img/docs/hanium-award.jpg" class="doc" target="_blank" rel="noopener">수상 확인서</a><a href="img/docs/hanium-done.jpg" class="doc" target="_blank" rel="noopener">수행 확인서</a></span></div>
           <div class="row"><div>산학 캡스톤디자인 은상 <small>인천대학교</small></div><span class="d">2023.07<a href="img/docs/capstone-silver.jpg" class="doc" target="_blank" rel="noopener">상장</a></span></div>
@@ -566,7 +569,7 @@ dialog.lb .m__x{position:absolute;top:10px;right:10px;margin:0}
           <li><em>결과</em><span>반복 조작을 도구로 바꾼 과정을 정리해 현장실습 수기공모전 최우수상을 받았습니다.</span></li>
         </ul>
         <div class="stack"><span>C#</span><span>WinForms</span><span>LabVIEW</span><span>RS-232 · SCPI</span><span>CAN / CAN FD</span><span>UDS</span></div>
-        <div class="docs"><a href="https://github.com/DohyunKang/DohyunKang/blob/main/assets/docs/techways-essay.pdf" target="_blank" rel="noopener">수기</a><a href="https://github.com/DohyunKang/DohyunKang/blob/main/assets/docs/work-study-report.pdf" target="_blank" rel="noopener">종합 보고서</a><a href="https://github.com/DohyunKang/DohyunKang/blob/main/assets/docs/techways-essay-ja.pdf" target="_blank" rel="noopener">日本語</a></div>
+        <div class="docs"><a href="img/docs/essay/1.jpg" class="doc" data-n="19" target="_blank" rel="noopener">수기</a><a href="img/docs/work-study/1.jpg" class="doc" data-n="26" target="_blank" rel="noopener">종합 보고서</a><a href="img/docs/essay-ja/1.jpg" class="doc" data-n="21" target="_blank" rel="noopener">日本語</a></div>
     <p class="m__h">자료</p>
     <div class="m__gallery"><!-- 사진·화면 자료: <img src="img/..." alt=""> --></div>
   </div>
@@ -596,7 +599,7 @@ dialog.lb .m__x{position:absolute;top:10px;right:10px;margin:0}
           <li>한국어·영어·일본어, 장비 없이 돌려 보는 데모 모드</li>
         </ul>
         <div class="stack"><span>Python</span><span>Django</span><span>DRF</span><span>React</span><span>Vite</span><span>Tailwind CSS</span><span>YOLOv8</span><span>EasyOCR</span><span>OpenCV</span><span>Gaussian Process</span><span>Docker</span><span>GitHub Actions</span></div>
-        <div class="docs"><a href="https://github.com/user-attachments/files/26230737/24._SW._HW._.x._.1.pptx" target="_blank" rel="noopener">설계서</a><a href="https://github.com/user-attachments/files/26230765/TEAM_._2024.ICT.pdf" target="_blank" rel="noopener">수행계획서</a><a href="https://github.com/user-attachments/files/26230588/ICT.pdf" target="_blank" rel="noopener">논문</a><a href="https://github.com/DohyunKang/DohyunKang/blob/main/assets/docs/smartparking-ja.pdf" target="_blank" rel="noopener">개선판 소개 (日本語)</a></div>
+        <div class="docs"><a href="img/docs/design/1.jpg" class="doc" data-n="55" target="_blank" rel="noopener">설계서</a><a href="img/docs/plan/1.jpg" class="doc" data-n="9" target="_blank" rel="noopener">수행계획서</a><a href="img/docs/paper/1.jpg" class="doc" data-n="2" target="_blank" rel="noopener">논문</a><a href="img/docs/parking-ja/1.jpg" class="doc" data-n="8" target="_blank" rel="noopener">개선판 소개 (日本語)</a></div>
     <p class="m__h">자료</p>
     <div class="m__gallery"><figure><a href="img/parking-app.jpg" class="doc"><img src="img/parking-app.jpg" alt="개선판(v2) 화면 — 추천 자리와 실시간 현황" loading="lazy"></a><figcaption>개선판(v2) 화면 — 추천 자리와 실시간 현황</figcaption></figure><figure><a href="img/projects/parking-1.jpg" class="doc"><img src="img/projects/parking-1.jpg" alt="1차 버전 주차 현황 — 칸별 차량 번호와 예상 출차 시간" loading="lazy"></a><figcaption>1차 버전 주차 현황 — 칸별 차량 번호와 예상 출차 시간</figcaption></figure><figure><a href="img/projects/parking-2.jpg" class="doc"><img src="img/projects/parking-2.jpg" alt="시연용 축소 모형 주차장 카메라 화면" loading="lazy"></a><figcaption>시연용 축소 모형 주차장 카메라 화면</figcaption></figure><figure><a href="img/projects/parking-3.jpg" class="doc"><img src="img/projects/parking-3.jpg" alt="요일별 입차·출차 시간 설정 화면" loading="lazy"></a><figcaption>요일별 입차·출차 시간 설정 화면</figcaption></figure></div>
   </div>
@@ -624,7 +627,7 @@ dialog.lb .m__x{position:absolute;top:10px;right:10px;margin:0}
           <li>LoRa 장거리 무선 통신</li>
         </ul>
         <div class="stack"><span>Arduino (SAMD21)</span><span>C/C++</span><span>LoRa (RFM95)</span><span>LSM6DS3</span><span>CCS811</span><span>BME280</span><span>Python</span><span>PyQt5</span></div>
-        <div class="docs"><a href="https://github.com/DohyunKang/DohyunKang/blob/main/assets/docs/safety-helmet-final-report.pdf" target="_blank" rel="noopener">최종 보고서</a><a href="https://github.com/user-attachments/files/29079632/capstone_helmet_JP_full.pdf" target="_blank" rel="noopener">日本語</a><a href="img/docs/capstone-silver.jpg" class="doc" target="_blank" rel="noopener">상장</a></div>
+        <div class="docs"><a href="img/docs/helmet-report/1.jpg" class="doc" data-n="15" target="_blank" rel="noopener">최종 보고서</a><a href="img/docs/helmet-ja/1.jpg" class="doc" data-n="11" target="_blank" rel="noopener">日本語</a><a href="img/docs/capstone-silver.jpg" class="doc" target="_blank" rel="noopener">상장</a></div>
     <p class="m__h">자료</p>
     <div class="m__gallery"><figure><a href="img/projects/helmet-1.jpg" class="doc"><img src="img/projects/helmet-1.jpg" alt="센서·LoRa 모듈·배터리를 단 안전모 시제품" loading="lazy"></a><figcaption>센서·LoRa 모듈·배터리를 단 안전모 시제품</figcaption></figure><figure><a href="img/projects/helmet-2.jpg" class="doc"><img src="img/projects/helmet-2.jpg" alt="관제 프로그램 — 작업자 1의 센서 값과 상태(정상)" loading="lazy"></a><figcaption>관제 프로그램 — 작업자 1의 센서 값과 상태(정상)</figcaption></figure></div>
   </div>
@@ -651,7 +654,7 @@ dialog.lb .m__x{position:absolute;top:10px;right:10px;margin:0}
           <li>벌 출입 수를 세는 Bee Counter와 벌통 입구 이미지</li>
         </ul>
         <div class="stack"><span>ESP32</span><span>Arduino (C++)</span><span>ESP-NOW</span><span>DHT</span><span>MQ135</span><span>HX711</span><span>PHP</span><span>MySQL</span><span>Google Charts</span><span>CST</span><span>VNA</span></div>
-        <div class="docs"><a href="https://github.com/user-attachments/files/26230478/Reflector.Array.5G._.pptx" target="_blank" rel="noopener">졸업 작품: 5G 반사판 모델하우스</a><a href="https://github.com/user-attachments/files/26230574/Reflector.Array.5G._.-.pdf" target="_blank" rel="noopener">PDF</a></div>
+        <div class="docs"><a href="img/docs/reflector/1.jpg" class="doc" data-n="20" data-full="https://github.com/user-attachments/files/26230574/Reflector.Array.5G._.-.pdf" data-full-label="전체 126쪽은 GitHub에서" target="_blank" rel="noopener">졸업 작품: 5G 반사판 모델하우스</a></div>
     <p class="m__h">자료</p>
     <div class="m__gallery"><figure><a href="img/projects/hive-1.jpg" class="doc"><img src="img/projects/hive-1.jpg" alt="벌통별 센서 현황 화면 (온습도·CO2·무게)" loading="lazy"></a><figcaption>벌통별 센서 현황 화면 (온습도·CO2·무게)</figcaption></figure><figure><a href="img/projects/hive-2.jpg" class="doc"><img src="img/projects/hive-2.jpg" alt="센서별 온도·습도 변화 그래프" loading="lazy"></a><figcaption>센서별 온도·습도 변화 그래프</figcaption></figure></div>
   </div>
@@ -746,8 +749,21 @@ dialog.lb .m__x{position:absolute;top:10px;right:10px;margin:0}
   document.querySelectorAll('a.doc').forEach(function(a){
     a.addEventListener('click',function(e){
       if(!lb||!lb.showModal)return; e.preventDefault();
-      var im=lb.querySelector('img'); im.src=a.getAttribute('href'); im.alt=a.textContent;
-      lb.showModal(); document.body.style.overflow='hidden';
+      // 여러 쪽 문서는 쪽 그림을 세로로 이어 보여 줌
+      var n=+a.dataset.n||1, src=a.getAttribute('href'), base=src.replace(/1\.jpg$/,'');
+      lb.querySelectorAll('img,.lb__full').forEach(function(el){el.remove()});
+      for(var i=1;i<=n;i++){
+        var im=document.createElement('img');
+        im.src=n>1?base+i+'.jpg':src; im.alt=a.textContent+(n>1?' '+i+'/'+n:'');
+        if(i>2) im.loading='lazy';
+        lb.appendChild(im);
+      }
+      if(a.dataset.full){
+        var f=document.createElement('a'); f.className='lb__full'; f.href=a.dataset.full;
+        f.target='_blank'; f.rel='noopener'; f.textContent=a.dataset.fullLabel+' ↗'; lb.appendChild(f);
+      }
+      lb.classList.toggle('multi',n>1); lb.setAttribute('aria-label',a.textContent);
+      lb.showModal(); lb.scrollTop=0; document.body.style.overflow='hidden';
     });
   });
 

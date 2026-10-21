@@ -279,7 +279,10 @@ dialog.m::backdrop{background:rgba(20,19,17,.55);backdrop-filter:blur(4px);-webk
 /* 증명서 크게 보기 */
 dialog.lb{width:min(820px,calc(100vw - 24px));background:var(--paper)}
 dialog.lb img{width:100%;height:auto;display:block;border-radius:0 0 18px 18px}
-dialog.lb .m__x{position:absolute;top:10px;right:10px;margin:0}
+dialog.lb .m__x{position:sticky;top:10px;float:right;margin:10px 10px -48px 0}
+dialog.lb img+img{margin-top:10px;border-radius:0}
+dialog.lb.multi img{border-radius:0}
+dialog.lb .lb__full{display:block;padding:16px;text-align:center;font-size:.88rem;font-weight:600;color:var(--accent)}
 /* 모달 — 주요 기능과 사진 설명 */
 .m__feat{margin:0;padding-left:18px;display:grid;gap:4px;color:var(--sub);font-size:.94rem}
 .m__gallery figure{margin:0;display:grid;gap:6px}
@@ -533,7 +536,7 @@ dialog.lb .m__x{position:absolute;top:10px;right:10px;margin:0}
       <div class="box up">
         <h3><span class="it">Awards</span>受賞</h3>
         <div class="rows">
-          <div class="row"><div>現場教育実習 体験記コンテスト 最優秀賞 <small>仁川大学</small></div><span class="d">2025.02<a href="https://github.com/DohyunKang/DohyunKang/blob/main/assets/docs/techways-essay.pdf" target="_blank" rel="noopener">体験記</a><a href="img/docs/essay-grand-prize.jpg" class="doc" target="_blank" rel="noopener">賞状</a></span></div>
+          <div class="row"><div>現場教育実習 体験記コンテスト 最優秀賞 <small>仁川大学</small></div><span class="d">2025.02<a href="img/docs/essay/1.jpg" class="doc" data-n="19" target="_blank" rel="noopener">体験記</a><a href="img/docs/essay-grand-prize.jpg" class="doc" target="_blank" rel="noopener">賞状</a></span></div>
           <div class="row"><div>ACK 2024 論文優秀賞 <small>韓国情報処理学会 ICTメンタリング学術大会</small></div><span class="d">2024.11<a href="img/docs/ack2024-excellence.jpg" class="doc" target="_blank" rel="noopener">賞状</a></span></div>
           <div class="row"><div>ハンイウム(Hanium) ICTメンタリングコンテスト 入選 <small>韓国情報産業連合会</small></div><span class="d">2024.12<a href="img/docs/hanium-award.jpg" class="doc" target="_blank" rel="noopener">受賞確認書</a><a href="img/docs/hanium-done.jpg" class="doc" target="_blank" rel="noopener">遂行確認書</a></span></div>
           <div class="row"><div>産学キャップストーンデザイン 銀賞 <small>仁川大学</small></div><span class="d">2023.07<a href="img/docs/capstone-silver.jpg" class="doc" target="_blank" rel="noopener">賞状</a></span></div>
@@ -566,7 +569,7 @@ dialog.lb .m__x{position:absolute;top:10px;right:10px;margin:0}
           <li><em>成果</em><span>繰り返しの操作をツールに置き換えた過程をまとめ、現場実習体験記コンテストで最優秀賞をいただきました。</span></li>
         </ul>
         <div class="stack"><span>C#</span><span>WinForms</span><span>LabVIEW</span><span>RS-232 · SCPI</span><span>CAN / CAN FD</span><span>UDS</span></div>
-        <div class="docs"><a href="https://github.com/DohyunKang/DohyunKang/blob/main/assets/docs/techways-essay.pdf" target="_blank" rel="noopener">体験記</a><a href="https://github.com/DohyunKang/DohyunKang/blob/main/assets/docs/work-study-report.pdf" target="_blank" rel="noopener">総合報告書</a><a href="https://github.com/DohyunKang/DohyunKang/blob/main/assets/docs/techways-essay-ja.pdf" target="_blank" rel="noopener">日本語</a></div>
+        <div class="docs"><a href="img/docs/essay/1.jpg" class="doc" data-n="19" target="_blank" rel="noopener">体験記</a><a href="img/docs/work-study/1.jpg" class="doc" data-n="26" target="_blank" rel="noopener">総合報告書</a><a href="img/docs/essay-ja/1.jpg" class="doc" data-n="21" target="_blank" rel="noopener">日本語</a></div>
     <p class="m__h">資料</p>
     <div class="m__gallery"><!-- 写真・画面資料: <img src="img/..." alt=""> --></div>
   </div>
@@ -596,7 +599,7 @@ dialog.lb .m__x{position:absolute;top:10px;right:10px;margin:0}
           <li>韓国語・英語・日本語、機器なしで動かせるデモモード</li>
         </ul>
         <div class="stack"><span>Python</span><span>Django</span><span>DRF</span><span>React</span><span>Vite</span><span>Tailwind CSS</span><span>YOLOv8</span><span>EasyOCR</span><span>OpenCV</span><span>Gaussian Process</span><span>Docker</span><span>GitHub Actions</span></div>
-        <div class="docs"><a href="https://github.com/user-attachments/files/26230737/24._SW._HW._.x._.1.pptx" target="_blank" rel="noopener">設計書</a><a href="https://github.com/user-attachments/files/26230765/TEAM_._2024.ICT.pdf" target="_blank" rel="noopener">実施計画書</a><a href="https://github.com/user-attachments/files/26230588/ICT.pdf" target="_blank" rel="noopener">論文</a><a href="https://github.com/DohyunKang/DohyunKang/blob/main/assets/docs/smartparking-ja.pdf" target="_blank" rel="noopener">改良版の紹介 (日本語)</a></div>
+        <div class="docs"><a href="img/docs/design/1.jpg" class="doc" data-n="55" target="_blank" rel="noopener">設計書</a><a href="img/docs/plan/1.jpg" class="doc" data-n="9" target="_blank" rel="noopener">実施計画書</a><a href="img/docs/paper/1.jpg" class="doc" data-n="2" target="_blank" rel="noopener">論文</a><a href="img/docs/parking-ja/1.jpg" class="doc" data-n="8" target="_blank" rel="noopener">改良版の紹介 (日本語)</a></div>
     <p class="m__h">資料</p>
     <div class="m__gallery"><figure><a href="img/parking-app.jpg" class="doc"><img src="img/parking-app.jpg" alt="改善版（v2）— おすすめ区画とリアルタイム状況" loading="lazy"></a><figcaption>改善版（v2）— おすすめ区画とリアルタイム状況</figcaption></figure><figure><a href="img/projects/parking-1.jpg" class="doc"><img src="img/projects/parking-1.jpg" alt="初期版の駐車状況 — 区画ごとの車両番号と出庫予測時間" loading="lazy"></a><figcaption>初期版の駐車状況 — 区画ごとの車両番号と出庫予測時間</figcaption></figure><figure><a href="img/projects/parking-2.jpg" class="doc"><img src="img/projects/parking-2.jpg" alt="デモ用縮小模型駐車場のカメラ映像" loading="lazy"></a><figcaption>デモ用縮小模型駐車場のカメラ映像</figcaption></figure><figure><a href="img/projects/parking-3.jpg" class="doc"><img src="img/projects/parking-3.jpg" alt="曜日ごとの入庫・出庫時間の設定画面" loading="lazy"></a><figcaption>曜日ごとの入庫・出庫時間の設定画面</figcaption></figure></div>
   </div>
@@ -624,7 +627,7 @@ dialog.lb .m__x{position:absolute;top:10px;right:10px;margin:0}
           <li>LoRaによる長距離無線通信</li>
         </ul>
         <div class="stack"><span>Arduino (SAMD21)</span><span>C/C++</span><span>LoRa (RFM95)</span><span>LSM6DS3</span><span>CCS811</span><span>BME280</span><span>Python</span><span>PyQt5</span></div>
-        <div class="docs"><a href="https://github.com/DohyunKang/DohyunKang/blob/main/assets/docs/safety-helmet-final-report.pdf" target="_blank" rel="noopener">最終報告書</a><a href="https://github.com/user-attachments/files/29079632/capstone_helmet_JP_full.pdf" target="_blank" rel="noopener">日本語</a><a href="img/docs/capstone-silver.jpg" class="doc" target="_blank" rel="noopener">賞状</a></div>
+        <div class="docs"><a href="img/docs/helmet-report/1.jpg" class="doc" data-n="15" target="_blank" rel="noopener">最終報告書</a><a href="img/docs/helmet-ja/1.jpg" class="doc" data-n="11" target="_blank" rel="noopener">日本語</a><a href="img/docs/capstone-silver.jpg" class="doc" target="_blank" rel="noopener">賞状</a></div>
     <p class="m__h">資料</p>
     <div class="m__gallery"><figure><a href="img/projects/helmet-1.jpg" class="doc"><img src="img/projects/helmet-1.jpg" alt="センサー・LoRaモジュール・バッテリーを付けたヘルメット試作品" loading="lazy"></a><figcaption>センサー・LoRaモジュール・バッテリーを付けたヘルメット試作品</figcaption></figure><figure><a href="img/projects/helmet-2.jpg" class="doc"><img src="img/projects/helmet-2.jpg" alt="監視プログラム — 作業者1のセンサー値と状態（正常）" loading="lazy"></a><figcaption>監視プログラム — 作業者1のセンサー値と状態（正常）</figcaption></figure></div>
   </div>
@@ -651,7 +654,7 @@ dialog.lb .m__x{position:absolute;top:10px;right:10px;margin:0}
           <li>蜂の出入りを数えるBee Counterと巣箱入口の画像</li>
         </ul>
         <div class="stack"><span>ESP32</span><span>Arduino (C++)</span><span>ESP-NOW</span><span>DHT</span><span>MQ135</span><span>HX711</span><span>PHP</span><span>MySQL</span><span>Google Charts</span><span>CST</span><span>VNA</span></div>
-        <div class="docs"><a href="https://github.com/user-attachments/files/26230478/Reflector.Array.5G._.pptx" target="_blank" rel="noopener">卒業作品: 5G反射板モデルハウス</a><a href="https://github.com/user-attachments/files/26230574/Reflector.Array.5G._.-.pdf" target="_blank" rel="noopener">PDF</a></div>
+        <div class="docs"><a href="img/docs/reflector/1.jpg" class="doc" data-n="20" data-full="https://github.com/user-attachments/files/26230574/Reflector.Array.5G._.-.pdf" data-full-label="全126ページはGitHubで" target="_blank" rel="noopener">卒業作品: 5G反射板モデルハウス</a></div>
     <p class="m__h">資料</p>
     <div class="m__gallery"><figure><a href="img/projects/hive-1.jpg" class="doc"><img src="img/projects/hive-1.jpg" alt="巣箱ごとのセンサー状況画面（温湿度・CO2・重量）" loading="lazy"></a><figcaption>巣箱ごとのセンサー状況画面（温湿度・CO2・重量）</figcaption></figure><figure><a href="img/projects/hive-2.jpg" class="doc"><img src="img/projects/hive-2.jpg" alt="センサー別の温度・湿度の推移グラフ" loading="lazy"></a><figcaption>センサー別の温度・湿度の推移グラフ</figcaption></figure></div>
   </div>
@@ -746,8 +749,21 @@ dialog.lb .m__x{position:absolute;top:10px;right:10px;margin:0}
   document.querySelectorAll('a.doc').forEach(function(a){
     a.addEventListener('click',function(e){
       if(!lb||!lb.showModal)return; e.preventDefault();
-      var im=lb.querySelector('img'); im.src=a.getAttribute('href'); im.alt=a.textContent;
-      lb.showModal(); document.body.style.overflow='hidden';
+      // 여러 쪽 문서는 쪽 그림을 세로로 이어 보여 줌
+      var n=+a.dataset.n||1, src=a.getAttribute('href'), base=src.replace(/1\.jpg$/,'');
+      lb.querySelectorAll('img,.lb__full').forEach(function(el){el.remove()});
+      for(var i=1;i<=n;i++){
+        var im=document.createElement('img');
+        im.src=n>1?base+i+'.jpg':src; im.alt=a.textContent+(n>1?' '+i+'/'+n:'');
+        if(i>2) im.loading='lazy';
+        lb.appendChild(im);
+      }
+      if(a.dataset.full){
+        var f=document.createElement('a'); f.className='lb__full'; f.href=a.dataset.full;
+        f.target='_blank'; f.rel='noopener'; f.textContent=a.dataset.fullLabel+' ↗'; lb.appendChild(f);
+      }
+      lb.classList.toggle('multi',n>1); lb.setAttribute('aria-label',a.textContent);
+      lb.showModal(); lb.scrollTop=0; document.body.style.overflow='hidden';
     });
   });
 

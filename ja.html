@@ -62,6 +62,9 @@ nav.links a:hover{background:var(--paper);color:var(--ink)}
 .theme{border:0;background:var(--paper);color:var(--sub);width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:.95rem;box-shadow:var(--sh)}
 @media (max-width:760px){nav.links{display:none}.lang{margin-left:auto}}
 
+.rs{padding:6px 13px;border-radius:999px;background:var(--accent);color:var(--paper);font-size:.85rem;font-weight:700;white-space:nowrap}
+.rs:hover{opacity:.88}
+@media (max-width:760px){.hd{gap:6px}.hd .rs{margin-left:auto;padding:5px 10px;font-size:.8rem}.lang{margin-left:0}.lang a{padding:5px 5px}.logo{font-size:1.35rem}.theme{width:30px;height:30px;flex:none}}
 /* 첫 화면 — 사진에 걸친 손글씨 같은 한 줄 */
 .hero{padding-block:clamp(36px,6vw,80px) 0}
 .hero__grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(36px,6vw,80px);align-items:center}
@@ -331,6 +334,7 @@ dialog.lb .lb__full{display:block;padding:16px;text-align:center;font-size:.88re
       <a href="#experience">経歴</a>
       <a href="#credentials">学歴・資格</a>
     </nav>
+    <a class="rs" href="resume.ja.html">履歴書</a>
     <nav class="lang" aria-label="Language">
       <a href="index.html" hreflang="ko" lang="ko">KO</a>
       <a href="en.html" hreflang="en" lang="en">EN</a>
